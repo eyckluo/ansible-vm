@@ -16,7 +16,7 @@ No dependencies
 How to run
 ----------------
 
-ansible-playbook -i servers task/main.yml
+ansible-playbook -i hosts site.yml
 
 License
 -------
