@@ -1,0 +1,64 @@
+---
+- name: install ansible
+  yum:
+    name: ansible
+    state: installed
+
+- name: install vim
+  yum:
+    name: vim
+    state: installed
+
+- name: install tmux
+  yum: 
+    name: tmux
+    state: installed
+
+- name: install yum-utils
+  yum:
+    name: yum-utils
+
+- name: install device-mapper-persistent-data
+  yum:
+    name: device-mapper-persistent-data
+    state: installed
+
+- name: install lvm2
+  yum:
+    name: lvm2
+    state: installed
+
+- name: add docker-ce yum repository
+  yum_repository:
+    name: docker-ce
+    description: docker-ce YUM repo
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: install git
+  yum:
+    name: git
+    state: installed
+
+- name: install maven
+  yum:
+    name: maven
+    state: installed
+
+- name: yum makecache fast
+  command: yum makecache fast
+
+- name: install docker-ce
+  yum:
+    name: docker-ce
+    state: installed
+
+- service: 
+    name: docker
+    state: started
+
+- name: docker pull gitlab-ce
+  command: docker pull gitlab-ce
+
+- name: docker pull jenkins
+  name: docker pull jenkins
+
